@@ -6,6 +6,7 @@ import os
 save_dir = 'exports'
 file = 'list.txt'
 links = []
+split = '\n'
 
 try:
     f = open(file, 'r').read()
@@ -15,7 +16,7 @@ except FileNotFoundError:
     exit(f'No file with the name {file} exists so one has been created')
 
 
-unformatted = f.split('\n')
+unformatted = f.split(split)
 
 count = 0
 for x in unformatted:
