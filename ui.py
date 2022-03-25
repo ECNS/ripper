@@ -1,4 +1,4 @@
-from tkinter import *  # from tkinter import *
-
-lst = ['a', 'b', 'c', 'd']
-
+from datetime import date
+today = date.today()
+d3 = today.strftime("%d/%m/%y")
+print(d3)

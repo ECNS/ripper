@@ -1,4 +1,5 @@
 from tqdm import tqdm
+from datetime import date
 import time
 import urllib.request
 import os
@@ -45,6 +46,10 @@ for x in pbar:
         urllib.request.urlretrieve(links[x], f'{save_dir}/{name[-1]}')
 
 print('All files downloaded')
+
+export_file = open(f'{save_dir}/{file}', 'a')
+
+for x in list
 
 file = open(file, 'w').write('')
 
