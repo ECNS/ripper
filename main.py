@@ -61,4 +61,4 @@ file = open(file, 'w')
 file.write('')
 file.close()
 
-exit(f'All links cleared from {file}')
+exit(f'All links cleared from {file.name}')
