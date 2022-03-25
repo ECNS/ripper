@@ -4,6 +4,7 @@ import time
 import urllib.request
 import os
 
+today = date.today()
 save_dir = 'exports'
 file = 'list.txt'
 links = []
@@ -47,10 +48,17 @@ for x in pbar:
 
 print('All files downloaded')
 
-export_file = open(f'{save_dir}/{file}', 'a')
 
-for x in list
+export_file = open(f'{save_dir}/{today.strftime("%d-%m-%y")}.txt', 'a')
 
-file = open(file, 'w').write('')
+
+for x in links:
+    export_file.write(f'{x}\n')
+
+export_file.close()
+
+file = open(file, 'w')
+file.write('')
+file.close()
 
 exit(f'All links cleared from {file}')
