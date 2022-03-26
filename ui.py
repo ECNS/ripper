@@ -1,12 +1,11 @@
-import gc
-import os
-import urllib.request
-from tkinter import *
 from tkinter.filedialog import askopenfilename
-from main import open_file
 from PIL import ImageTk, Image
+from main import open_file
 from time import sleep
+from tkinter import *
+import urllib.request
 import io
+import os
 
 
 links = []
