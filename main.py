@@ -41,7 +41,7 @@ def select_file():
 
     unformatted_list = f.split(split)
 
-    print(unformatted_list)
+    unformatted_list = list(dict.fromkeys(unformatted_list))
 
     if unformatted_list == ['']:
         error_popup('FILE01')
