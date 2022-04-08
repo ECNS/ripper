@@ -1,12 +1,11 @@
-from tkinter.filedialog import askopenfilename
 from PIL import ImageTk
-import PIL.Image
+from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
 from tkinter import *
+import PIL.Image
 import urllib.request
 import io
 import os
-
 
 top = Tk()
 
@@ -53,6 +52,8 @@ def select_file():
 
 
 def onselect(evt):
+    if lb1.size() == 0:
+        return
     w = evt.widget
     index = int(w.curselection()[0])
     value = w.get(index)
@@ -80,21 +81,16 @@ def onselect(evt):
 
 def auto_download():
     while lb1.size() != 0:
-        lb1.selection_clear(0, END)
+        sv_f1(True)
+
+
+def sv_f1(auto):
+
+    if auto:
         lb1.select_set(0)
-        link = lb1.get(lb1.curselection())
-        name = link.split('/')
-        name = name[-1]
-        try:
-            urllib.request.urlretrieve(link, f'exports/{name}')
-        except FileNotFoundError:
-            os.mkdir('exports/')
-            urllib.request.urlretrieve(link, f'exports/{name}')
-        lb1.delete(0)
 
-
-def sv_f1():
     link = lb1.get(lb1.curselection())
+
     name = link.split('/')
     name = name[-1]
     try:
@@ -132,7 +128,6 @@ def skip():
 
 top.title('Ripper')
 
-
 # Section 0
 lb1 = Listbox(top, width=50, height=30, selectmode=SINGLE)
 lb1.bind('<<ListboxSelect>>', onselect)
@@ -141,7 +136,6 @@ lb1.grid(column=0, row=0, padx=5, pady=5, rowspan=35)
 imp_btn = Button(top, text='Import List', width=45, command=select_file)
 imp_btn.grid(row=36, column=0, padx=5, pady=5)
 
-
 # Section 1
 split_point_text = Label(top, text='Set split point : ')
 split_point_text.grid(row=0, column=1, padx=5, pady=5)
@@ -149,11 +143,10 @@ split_point_text.grid(row=0, column=1, padx=5, pady=5)
 split_point = Entry(top, width=30)
 split_point.grid(row=0, column=2, padx=5, pady=5, columnspan=3)
 
-
 start_btn = Button(top, text='Automatic Download', width=40, command=auto_download)
 start_btn.grid(row=1, column=1, padx=5, pady=5, columnspan=4)
 
-save_one_btn = Button(top, text='Save Folder 1', width=17, command=sv_f1)
+save_one_btn = Button(top, text='Save Folder 1', width=17, command=lambda: sv_f1(False))
 save_one_btn.grid(row=2, column=1, columnspan=2)
 
 save_two_btn = Button(top, text='Save Folder 2', width=17, command=sv_f2)
