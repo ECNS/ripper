@@ -2,4 +2,4 @@
 list.txt
 .DS_Store
 testing.py
-log.log
+*.log
