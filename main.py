@@ -2,24 +2,34 @@ from PIL import ImageTk
 from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
 from tkinter import *
+import logging
 import PIL.Image
 import urllib.request
 import io
 import os
 
+
+logging.basicConfig(level=logging.DEBUG,
+                    filename="log.log",
+                    filemode='w',
+                    format="%(asctime)s - %(levelname)s - %(message)s")
+
 top = Tk()
 
 if not os.path.isdir('exports/'):
+    logging.info('creating directory \'exports/\'')
     os.mkdir('exports/')
 
 
 def error_popup(error):
     if error is None:
+        logging.error('Unknown error')
         messagebox.showerror(f'Error Code : Unknown', 'Unknown error contact dev')
         return
 
     if error == 'FILE01':
         messagebox.showerror(f'Error Code : {error}', 'No links in file')
+        logging.error('No links in file')
         return
 
 
