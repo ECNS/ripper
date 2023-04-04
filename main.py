@@ -43,7 +43,7 @@ def select_file():
         initialdir=os.getcwd(),
         title='Open a file',
         filetypes=filetypes)
-
+    
     f = open(filename, 'r').read()
 
     try:
