@@ -6,3 +6,4 @@
  - Add error handling 
  - Add notes to everything
  - Add progress bar for automatic mode (Tkinter)
+ - Add multithreading

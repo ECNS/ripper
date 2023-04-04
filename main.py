@@ -10,7 +10,7 @@ import os
 
 
 logging.basicConfig(level=logging.DEBUG,
-                    filename="log.log",
+                    filename="log_ripper.log",
                     filemode='w',
                     format="%(asctime)s - %(levelname)s - %(message)s")
 
