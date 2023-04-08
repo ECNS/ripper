@@ -91,6 +91,7 @@ def onselect(evt):
 
 def auto_download():
     while lb1.size() != 0:
+        print(f'Files Remaning : {lb1.size()}')
         sv_f1(True)
 
 
